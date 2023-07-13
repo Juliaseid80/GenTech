@@ -1,0 +1,56 @@
+1.
+
+SELECT * 
+FROM Customers
+
+WHERE Country='Germany' AND CustomerName LIKE '%a%'
+OR
+Country='France' AND CustomerName LIKE '%b%'
+
+
+
+2.
+
+SELECT * 
+FROM Products
+
+WHERE ProductName LIKE '%u'
+ORDER BY Price
+LIMIT 2
+
+
+
+3.
+
+UPDATE Products
+SET 
+	Price = CASE
+	WHEN CategoryID = 1 THEN Price * .71
+	WHEN CategoryID = 3 THEN Price * .005
+	END
+WHERE CategoryID IN (1, 3) 
+
+
+4.
+
+UPDATE Suppliers
+SET Phone=null
+    WHERE Country='Australia';
+SELECT
+    SupplierName,
+    Phone
+FROM Suppliers
+
+
+5.
+
+SELECT City
+FROM Customers
+WHERE Country!='Germany'
+
+UNION
+
+SELECT City
+FROM Suppliers
+WHERE Country!='USA'	
+ 

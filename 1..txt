@@ -1,0 +1,30 @@
+1. 
+SELECT
+    ProductName,
+    Price
+FROM
+    [Products]
+WHERE
+    Price > 20
+
+2. 
+
+SELECT DISTINCT Country
+FROM [Suppliers]
+
+  
+
+3. 
+
+SELECT
+    ProductName,
+    Price*.91 AS lower_price
+FROM Products
+WHERE SupplierID!=1
+ORDER BY Price ASC
+
+4.
+
+SELECT ContactName
+FROM [Customers]
+WHERE NOT Country  in ('France', 'USA')

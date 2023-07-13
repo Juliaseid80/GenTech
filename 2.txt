@@ -1,0 +1,37 @@
+SELECT Phone
+FROM Suppliers
+WHERE NOT COUNTRY IN ('Germany','France')
+
+-- Добавить два произвольных товара.
+1.
+
+INSERT INTO Products(ProductName, Price)
+VALUES
+    ("someProduct_1", 99.99),
+    ("someProduct_2", 90)
+
+
+2.
+
+DELETE FROM Suppliers
+WHERE
+Country IN ('USA','Germany')
+
+
+3.
+
+SELECT * 
+FROM Products
+    WHERE Price <= 20
+AND 
+    CategoryID IN (3, 6)
+ORDER BY Price DESC 
+
+
+4.
+
+SELECT * 
+FROM Orders
+ORDER BY OrderDate DESC
+LIMIT 3
+
