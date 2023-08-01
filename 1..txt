@@ -1,43 +1,31 @@
+// Приведите 10 типовых бизнес-процессов для любой предметной области (кроме интернет-магазина), а также их соответствие по CRUD.
+Киоск фаст-фуда
+Создание нового блюда (Create)
 
+Создание новой поставки (Create)
+Просмотр информации о поставке (Read)
+Обновление информации о поставке (Update)
 
-Вывести название и стоимость товаров от 20 EUR. 
+Управление сотрудниками:Добавление нового сотрудника (Create),Просмотр информации о сотруднике (Read),Обновление информации о сотруднике (Update),Удаление сотрудника (Delete)
+Управление кассовыми операциями:Создание новой кассовой операции (Create),Просмотр информации о кассовой операции (Read),Обновление информации о кассовой операции (Update),Удаление кассовой операции (Delete)
+Управление заказами:Создание нового заказа (Create),Просмотр информации о заказе (Read),Обновление информации о заказе (Update),Удаление заказа (Delete)
 
-Вывести страны поставщиков.
+// Вывести название и стоимость товаров от 20 EUR
+SELECT ProductName, Price 
+FROM Products WHERE Price>=20;
 
-В упорядоченном по стоимости виде вывести название и стоимость товаров со скидкой в 9% от всех поставщиков, кроме поставщика 1. 
+// Вывести страны поставщиков.
+SELECT DISTINCT Country FROM Suppliers;
 
-Вывести контактные имена клиентов, кроме тех, что из France и USA.
-
-
-
-
-1. 
-SELECT
-    ProductName,
-    Price
-FROM
-    [Products]
-WHERE
-    Price > 20
-
-2. 
-
-SELECT DISTINCT Country
-FROM [Suppliers]
-
-  
-
-3. 
-
-SELECT
-    ProductName,
-    Price*.91 AS lower_price
+// В упорядоченном по стоимости виде вывести название и стоимость товаров со скидкой в 9% от всех поставщиков, кроме поставщика 1. 
+SELECT ProductName,
+       Price * 0.91 AS PriceWithDiscount 
 FROM Products
-WHERE SupplierID!=1
+WHERE SupplierID<>1
 ORDER BY Price ASC
 
-4.
-
-SELECT ContactName
-FROM [Customers]
-WHERE NOT Country  in ('France', 'USA')
+// Вывести контактные имена клиентов, кроме тех, что из France и USA.
+SELECT CustomerName, Country 
+FROM Customers
+WHERE
+	Country NOT IN ('France', 'USA')
